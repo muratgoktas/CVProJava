@@ -1,14 +1,19 @@
 package com.CvProJava.CvPro.Entities;
 
 import java.util.Date;
-
+import lombok.Getter;
+import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
 @Table(name="PersonelInformations")
 public class PersonelInformation {
 	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private int Id;
+	@Getter @Setter
 	private String FirstName;
 	private String MiddleName;
 	private String LastName;
@@ -38,12 +43,7 @@ public class PersonelInformation {
 	public void setId(int id) {
 		Id = id;
 	}
-	public String getFirstName() {
-		return FirstName;
-	}
-	public void setFirstName(String firstName) {
-		FirstName = firstName;
-	}
+	 
 	public String getMiddleName() {
 		return MiddleName;
 	}
