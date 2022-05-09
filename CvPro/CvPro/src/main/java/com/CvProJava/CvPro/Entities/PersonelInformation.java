@@ -23,21 +23,25 @@ public class PersonelInformation {
 	private String FirstName;
 	@Column(name="MiddleName")
 	private String MiddleName;
+	@Column(name="LastName")
 	private String LastName;
+	@Column(name="Birthdate")
 	private Date  Birthdate;
+	@Column(name="BirthCity")
 	private String BirthCity;
+	@Column(name="MaritalStatus")
 	private boolean MaritalStatus;
+	@Column(name="MilitaryStatus")
 	private boolean MilitaryStatus;
+	@Column(name="PhotoLink")
 	private String PhotoLink;
+	@Column(name="MilitaryEndDate")
 	private Date MilitaryEndDate;
 	@ToString.Include
-	String FullName(){
-		if (MiddleName=="") {
-			return FirstName+" "+LastName;
-		}else {
-			return FirstName+" "+MiddleName+" "+LastName;
-		}
-	}
 	
-
+	String FullName(){		
+		String result = (this.getMiddleName() == null ? FirstName+" "+LastName : FirstName+" "+MiddleName+" "+LastName);  
+		 return result;		
+	 }
+	
 }
